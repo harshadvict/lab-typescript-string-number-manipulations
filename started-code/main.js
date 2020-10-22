@@ -1,32 +1,33 @@
-import { StringManipulationService } from "./main-service";
-import { NumberManipulationService } from "./main-service";
-class StringManipulations implements StringManipulationService {
-    print(word: string): void {
-         console.log(word);
+"use strict";
+exports.__esModule = true;
+var StringManipulations = /** @class */ (function () {
+    function StringManipulations() {
+    }
+    StringManipulations.prototype.print = function (word) {
+        console.log(word);
         console.log(word.toUpperCase());
         console.log(word.toLowerCase());
         console.log(word.charAt(1));
         console.log(word.concat("i have concatenated"));
-        for (let index = 0; index < word.length; index++) {
+        for (var index = 0; index < word.length; index++) {
             console.log(word.slice(index));
         }
         console.log(word.length);
-    }
-    printWithSpace(sentence: string): void {
+    };
+    StringManipulations.prototype.printWithSpace = function (sentence) {
         console.log(sentence.split('').join(' '));
-
-      
-    }
-    findVowel(str: string): void {
+    };
+    StringManipulations.prototype.findVowel = function (str) {
         var no = str.match(/[aeiou]/gi).length;
         console.log(no);
-        
+    };
+    return StringManipulations;
+}());
+var NumbersManipulations = /** @class */ (function () {
+    function NumbersManipulations() {
     }
-}
-
-class NumbersManipulations implements NumberManipulationService {
-    findPrime(num: number): void {
-        var flag: boolean = true;
+    NumbersManipulations.prototype.findPrime = function (num) {
+        var flag = true;
         for (var index = 2; index < num; index++) {
             if (num % index == 0) {
                 flag = false;
@@ -39,11 +40,8 @@ class NumbersManipulations implements NumberManipulationService {
         else {
             console.log("not prime");
         }
-        
-    }
-    findMagic(num: number): void {
-
-
+    };
+    NumbersManipulations.prototype.findMagic = function (num) {
         var value = this.magic(num);
         if (value == 1) {
             console.log("magic number");
@@ -51,15 +49,11 @@ class NumbersManipulations implements NumberManipulationService {
         else {
             console.log("not a magic number");
         }
-       
-    }
-
-
-
-    magic(num: number): number {
+    };
+    NumbersManipulations.prototype.magic = function (num) {
         console.log("hi");
-        var temp: number = num;
-        var sum: number = 0;
+        var temp = num;
+        var sum = 0;
         if (temp.toString().length == 1) {
             console.log(temp);
             return temp;
@@ -72,14 +66,13 @@ class NumbersManipulations implements NumberManipulationService {
             }
             return this.magic(sum);
         }
-    }
-}
-
-let obj=new StringManipulations();
+    };
+    return NumbersManipulations;
+}());
+var obj = new StringManipulations();
 obj.print("harsh");
 obj.printWithSpace("harshranjan");
 obj.findVowel("harsh");
-
-let obj1=new NumbersManipulations();
+var obj1 = new NumbersManipulations();
 obj1.findPrime(10);
 obj1.findMagic(1234);
